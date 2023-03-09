@@ -73,3 +73,4 @@ build/
 **/ios/Runner/GeneratedPluginRegistrant.*
 **/ios/*.ipa
 **/ios/*.app.dSYM.zip
+/lib/utils/api_credentials.dart
