@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:latlong2/latlong.dart';
 
 class AirPollutionProfile {

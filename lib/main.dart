@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:simple_weather/ui/constants.dart';
-import 'package:simple_weather/ui/home_screen/home_screen.dart';
+import 'package:flutter/services.dart';
 
-void main() {
+import 'ui/home_screen/home_screen.dart';
+import 'ui/constants.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent)
+  );
+
+  await SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.immersiveSticky
+  );
+
   runApp(const App());
 }
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
 
