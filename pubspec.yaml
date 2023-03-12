@@ -39,6 +39,8 @@ dependencies:
   geolocator: ^9.0.2
   http: ^0.13.5
   smooth_page_indicator: ^1.0.1
+  shared_preferences: ^2.0.18
+  card_loading: ^0.3.0
 
 dev_dependencies:
   flutter_test:

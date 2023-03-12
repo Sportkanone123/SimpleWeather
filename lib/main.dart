@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:simple_weather/ui/screens/home_screen/home_screen.dart';
 
-import 'ui/home_screen/home_screen.dart';
 import 'ui/constants.dart';
 
 Future<void> main() async {

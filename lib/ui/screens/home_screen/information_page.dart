@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_weather/ui/constants.dart';
+import 'package:simple_weather/ui/templates/location_skeleton_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class InformationPage extends StatefulWidget{
@@ -12,22 +13,8 @@ class InformationPage extends StatefulWidget{
 class InformationPageState extends State<InformationPage> {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
-  final pages = List.generate(3,
-          (index) => Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.grey.shade300,
-        ),
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-        child: SizedBox(
-          height: 1000,
-          child: Center(
-              child: Text(
-                "Page $index",
-                style: const TextStyle(color: Colors.indigo),
-              )),
-        ),
-      ));
+  final List<Widget> _pages = List.generate(3,
+          (index) => const LocationSkeletonPage());
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +23,7 @@ class InformationPageState extends State<InformationPage> {
       children: [
         Container(
           height: 22,
-          width: pages.length * 20 + 18,
+          width: _pages.length * 20 + 18,
           decoration: const BoxDecoration(
             shape: BoxShape.rectangle,
             color: kPrimaryColor,
@@ -45,7 +32,7 @@ class InformationPageState extends State<InformationPage> {
           alignment: Alignment.center,
           child: SmoothPageIndicator(
             controller: controller,
-            count: pages.length,
+            count: _pages.length,
             effect: const WormEffect(
               dotHeight: 8,
               dotWidth: 8,
@@ -63,9 +50,11 @@ class InformationPageState extends State<InformationPage> {
           child: PageView.builder(
             controller: controller,
             scrollDirection: Axis.horizontal,
-            itemCount: pages.length,
-            itemBuilder: (_, index) {
-              return SingleChildScrollView(child: pages[index % pages.length]);
+            itemCount: _pages.length,
+            padEnds: true,
+            pageSnapping: true,
+            itemBuilder: (context, index) {
+              return SingleChildScrollView(child: _pages[index]);
             },
           ),
         ),
