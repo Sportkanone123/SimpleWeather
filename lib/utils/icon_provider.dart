@@ -88,7 +88,7 @@ class IconProvider {
       case 804:
         return SvgPicture.asset('assets/weather_icons/clouds.svg');
       default:
-        return SvgPicture.asset('assets/weather_icons/clear_day.svg');
+        return SvgPicture.asset('assets/weather_icons/fetch_failed.svg');
     }
   }
 
