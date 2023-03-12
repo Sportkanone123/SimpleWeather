@@ -13,8 +13,7 @@ class WeatherProfile {
   late int sunset;
 
   late String weatherDescription;
-  late String weatherIconId;
-  late String? weatherIconPath;
+  late String weatherId;
 
   late int temperature;
   late int feelsLikeTemp;
@@ -34,8 +33,7 @@ class WeatherProfile {
       this.sunrise,
       this.sunset,
       this.weatherDescription,
-      this.weatherIconId,
-      this.weatherIconPath,
+      this.weatherId,
       this.temperature,
       this.feelsLikeTemp,
       this.minTemp,
@@ -59,8 +57,7 @@ class WeatherProfile {
     sunrise = jsonResponse['sys']['sunrise'] as int;
     sunset = jsonResponse['sys']['sunset'] as int;
     weatherDescription = jsonResponse['weather'][0]['description'] as String;
-    weatherIconId = jsonResponse['weather'][0]['icon'] as String;
-    weatherIconPath = null;
+    weatherId = jsonResponse['weather'][0]['id'] as String;
     temperature = jsonResponse['main']['temp'] as int;
     feelsLikeTemp = jsonResponse['main']['feels_like'] as int;
     minTemp = jsonResponse['main']['temp_min'] as int;
