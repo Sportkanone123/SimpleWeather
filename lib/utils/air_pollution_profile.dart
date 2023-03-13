@@ -6,14 +6,14 @@ class AirPollutionProfile {
 
   late int airPollutionIndex;
 
-  late int carbonMonoxide;
-  late int nitrogenMonoxide;
-  late int nitrogenDioxide;
-  late int ozone;
-  late int sulphurDioxide;
-  late int fineParticlesMatter;
-  late int coarseParticlesMatter;
-  late int ammonia;
+  late double carbonMonoxide;
+  late double nitrogenMonoxide;
+  late double nitrogenDioxide;
+  late double ozone;
+  late double sulphurDioxide;
+  late double fineParticlesMatter;
+  late double coarseParticlesMatter;
+  late double ammonia;
 
   AirPollutionProfile(
       this.time,
@@ -34,13 +34,13 @@ class AirPollutionProfile {
     time = subJsonResponse['dt'] as int;
     location = LatLng(jsonResponse['coord']['lat'] as double, jsonResponse['coord']['lon'] as double);
     airPollutionIndex = subJsonResponse['main']['aqi'] as int;
-    carbonMonoxide = subJsonResponse['components']['co'] as int;
-    nitrogenMonoxide = subJsonResponse['components']['no'] as int;
-    nitrogenDioxide = subJsonResponse['components']['no2'] as int;
-    ozone = subJsonResponse['components']['o3'] as int;
-    sulphurDioxide = subJsonResponse['components']['so2'] as int;
-    fineParticlesMatter = subJsonResponse['components']['pm2_5'] as int;
-    coarseParticlesMatter = subJsonResponse['components']['pm10'] as int;
-    ammonia = subJsonResponse['components']['nh3'] as int;
+    carbonMonoxide = subJsonResponse['components']['co'] as double;
+    nitrogenMonoxide = subJsonResponse['components']['no'] as double;
+    nitrogenDioxide = subJsonResponse['components']['no2'] as double;
+    ozone = subJsonResponse['components']['o3'] as double;
+    sulphurDioxide = subJsonResponse['components']['so2'] as double;
+    fineParticlesMatter = subJsonResponse['components']['pm2_5'] as double;
+    coarseParticlesMatter = subJsonResponse['components']['pm10'] as double;
+    ammonia = subJsonResponse['components']['nh3'] as double;
   }
 }

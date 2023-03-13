@@ -4,7 +4,12 @@ class LocationProfile {
   late String name;
   late LatLng latLng;
   late String country;
-  late String? state;
 
-  LocationProfile(this.name, this.latLng, this.country, this.state);
+  LocationProfile(this.name, this.latLng, this.country);
+
+  LocationProfile.fromJSON(Map<String, dynamic> jsonResponse){
+    name = jsonResponse['name'];
+    latLng = LatLng(jsonResponse['lat'], jsonResponse['lon']);
+    country = jsonResponse['country'];
+  }
 }

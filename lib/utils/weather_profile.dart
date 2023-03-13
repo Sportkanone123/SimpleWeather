@@ -13,16 +13,15 @@ class WeatherProfile {
   late int sunset;
 
   late String weatherDescription;
-  late String weatherId;
+  late int weatherId;
 
-  late int temperature;
-  late int feelsLikeTemp;
-  late int minTemp;
-  late int maxTemp;
+  late double temperature;
+  late double feelsLikeTemp;
+  late double minTemp;
+  late double maxTemp;
 
-  late int windSpeed;
+  late double windSpeed;
   late int windDegree;
-  late int windGust;
 
   late int humidityPercent;
   late int atmosphericPressure;
@@ -40,31 +39,24 @@ class WeatherProfile {
       this.maxTemp,
       this.windSpeed,
       this.windDegree,
-      this.windGust,
       this.humidityPercent,
       this.airPollutionIndex,
       this.atmosphericPressure);
 
-  WeatherProfile.fromJson(Map<String, dynamic> jsonResponse, AirPollutionProfile airPollution){
+  WeatherProfile.fromJson(Map<String, dynamic> jsonResponse, AirPollutionProfile airPollution, LocationProfile locationProfile){
     time = jsonResponse['dt'] as int;
-    location = LocationProfile(
-        jsonResponse['name'] as String,
-        LatLng(jsonResponse['coord']['lat'], jsonResponse['coord']['lon']),
-        jsonResponse['country'] as String,
-        null
-    );
+    location = locationProfile;
     airPollutionIndex = airPollution;
     sunrise = jsonResponse['sys']['sunrise'] as int;
     sunset = jsonResponse['sys']['sunset'] as int;
     weatherDescription = jsonResponse['weather'][0]['description'] as String;
-    weatherId = jsonResponse['weather'][0]['id'] as String;
-    temperature = jsonResponse['main']['temp'] as int;
-    feelsLikeTemp = jsonResponse['main']['feels_like'] as int;
-    minTemp = jsonResponse['main']['temp_min'] as int;
-    maxTemp = jsonResponse['main']['temp_max'] as int;
-    windSpeed = jsonResponse['wind']['speed'] as int;
+    weatherId = jsonResponse['weather'][0]['id'] as int;
+    temperature = jsonResponse['main']['temp'] as double;
+    feelsLikeTemp = jsonResponse['main']['feels_like'] as double;
+    minTemp = jsonResponse['main']['temp_min'] as double;
+    maxTemp = jsonResponse['main']['temp_max'] as double;
+    windSpeed = jsonResponse['wind']['speed'] as double;
     windDegree = jsonResponse['wind']['deg'] as int;
-    windGust = jsonResponse['wind']['gust'] as int;
     humidityPercent = jsonResponse['main']['humidity'] as int;
     atmosphericPressure = jsonResponse['main']['pressure'] as int;
   }

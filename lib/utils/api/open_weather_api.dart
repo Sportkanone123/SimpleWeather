@@ -19,7 +19,7 @@ class OpenWeatherAPI{
     return AirPollutionProfile.fromJSON(jsonResponse);
   }
 
-  Future<WeatherProfile> getWeatherProfile(LatLng latLng) async {
+  /*Future<WeatherProfile> getWeatherProfile(LatLng latLng) async {
     AirPollutionProfile airPollution = await getAirPollution(latLng);
 
     final response = await http
@@ -28,7 +28,7 @@ class OpenWeatherAPI{
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     return WeatherProfile.fromJson(jsonResponse, airPollution);
-  }
+  }*/
 
   Future<List<LocationProfile>> getLocationProfile(String query, int limit) async{
     final response = await http
@@ -45,7 +45,6 @@ class OpenWeatherAPI{
         jsonObject['name'] as String,
         LatLng(jsonObject['lat'], jsonObject['lon']),
         jsonObject['country'] as String,
-        jsonObject['state'] as String,
       ));
     }
 
