@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
@@ -28,7 +29,7 @@ class LocationPage extends StatelessWidget {
         Container(
           height: 30,
           margin: const EdgeInsets.only(bottom: 16, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
-          child: Text("${weatherProfile.location.name}, ${weatherProfile.location.country}", textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins")),
+          child: AutoSizeText("${weatherProfile.location.name}, ${weatherProfile.location.country}", maxLines: 1, maxFontSize: 30, textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins")),
         ),
         Container(
           height: 70,
@@ -134,7 +135,7 @@ class LocationPage extends StatelessWidget {
                     const Text("Remaining daylight: ", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextPrimaryColor),),
                     (!DateTime.now().isAfter(sunset)) ?
                       Text("${sunset.difference(DateTime.now()).abs().inHours}H ${sunset.difference(DateTime.now()).abs().inMinutes % 60}M", textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),)
-                      : const Text("0H 0M", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),)
+                      : const Text("---", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),)
                   ],
                 )
               ),

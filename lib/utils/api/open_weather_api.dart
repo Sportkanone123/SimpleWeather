@@ -19,16 +19,14 @@ class OpenWeatherAPI{
     return AirPollutionProfile.fromJSON(jsonResponse);
   }
 
-  /*Future<WeatherProfile> getWeatherProfile(LatLng latLng) async {
-    AirPollutionProfile airPollution = await getAirPollution(latLng);
-
+  Future<WeatherProfile> getWeatherProfile(LocationProfile locationProfile, AirPollutionProfile airPollutionProfile) async {
     final response = await http
-        .get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=${latLng.latitude}&lon=${latLng.longitude}&units=metric&appid=${APICredentials().OPEN_WEATHER_API_KEY}'));
+        .get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=${locationProfile.latLng.latitude}&lon=${locationProfile.latLng.longitude}&units=metric&appid=${APICredentials().OPEN_WEATHER_API_KEY}'));
 
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
-    return WeatherProfile.fromJson(jsonResponse, airPollution);
-  }*/
+    return WeatherProfile.fromJson(jsonResponse, airPollutionProfile, locationProfile);
+  }
 
   Future<List<LocationProfile>> getLocationProfile(String query, int limit) async{
     final response = await http

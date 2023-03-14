@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:latlong2/latlong.dart';
 
 class LocationProfile {
@@ -11,5 +13,16 @@ class LocationProfile {
     name = jsonResponse['name'];
     latLng = LatLng(jsonResponse['lat'], jsonResponse['lon']);
     country = jsonResponse['country'];
+  }
+
+  String toJSON(){
+    Map<String, dynamic> jsonObject = {};
+
+    jsonObject['name'] = name;
+    jsonObject['lon'] = latLng.longitude;
+    jsonObject['lat'] = latLng.latitude;
+    jsonObject['country'] = country;
+
+    return jsonEncode(jsonObject);
   }
 }

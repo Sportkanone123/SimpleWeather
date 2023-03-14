@@ -66,7 +66,7 @@ class _HeaderState extends State<Header> {
                       ),
                       onTap: (){
                         setState(() {
-                          prefs.setString(widget.weatherProfile.location.name.toLowerCase(), widget.weatherProfile.location.latLng.toJson().toString());
+                          prefs.setString(widget.weatherProfile.location.name.toLowerCase(), widget.weatherProfile.location.toJSON());
                           isSaved = true;
                         });
                       },

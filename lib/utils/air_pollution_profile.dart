@@ -7,7 +7,7 @@ class AirPollutionProfile {
   late int airPollutionIndex;
 
   late double carbonMonoxide;
-  late double nitrogenMonoxide;
+  late int nitrogenMonoxide;
   late double nitrogenDioxide;
   late double ozone;
   late double sulphurDioxide;
@@ -35,7 +35,7 @@ class AirPollutionProfile {
     location = LatLng(jsonResponse['coord']['lat'] as double, jsonResponse['coord']['lon'] as double);
     airPollutionIndex = subJsonResponse['main']['aqi'] as int;
     carbonMonoxide = subJsonResponse['components']['co'] as double;
-    nitrogenMonoxide = subJsonResponse['components']['no'] as double;
+    nitrogenMonoxide = subJsonResponse['components']['no'] as int;
     nitrogenDioxide = subJsonResponse['components']['no2'] as double;
     ozone = subJsonResponse['components']['o3'] as double;
     sulphurDioxide = subJsonResponse['components']['so2'] as double;
