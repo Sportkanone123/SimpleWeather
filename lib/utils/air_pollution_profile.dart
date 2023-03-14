@@ -7,7 +7,7 @@ class AirPollutionProfile {
   late int airPollutionIndex;
 
   late double carbonMonoxide;
-  late int nitrogenMonoxide;
+  late double nitrogenMonoxide;
   late double nitrogenDioxide;
   late double ozone;
   late double sulphurDioxide;
@@ -34,14 +34,14 @@ class AirPollutionProfile {
     time = subJsonResponse['dt'] as int;
     location = LatLng(jsonResponse['coord']['lat'] as double, jsonResponse['coord']['lon'] as double);
     airPollutionIndex = subJsonResponse['main']['aqi'] as int;
-    carbonMonoxide = subJsonResponse['components']['co'] as double;
-    nitrogenMonoxide = subJsonResponse['components']['no'] as int;
-    nitrogenDioxide = subJsonResponse['components']['no2'] as double;
-    ozone = subJsonResponse['components']['o3'] as double;
-    sulphurDioxide = subJsonResponse['components']['so2'] as double;
-    fineParticlesMatter = subJsonResponse['components']['pm2_5'] as double;
-    coarseParticlesMatter = subJsonResponse['components']['pm10'] as double;
-    ammonia = subJsonResponse['components']['nh3'] as double;
+    carbonMonoxide = double.parse(subJsonResponse['components']['co']);
+    nitrogenMonoxide = double.parse(subJsonResponse['components']['no']);
+    nitrogenDioxide = double.parse(subJsonResponse['components']['no2']);
+    ozone = double.parse(subJsonResponse['components']['o3']);
+    sulphurDioxide = double.parse(subJsonResponse['components']['so2']);
+    fineParticlesMatter = double.parse(subJsonResponse['components']['pm2_5']);
+    coarseParticlesMatter = double.parse(subJsonResponse['components']['pm10']);
+    ammonia = double.parse(subJsonResponse['components']['nh3']);
   }
 
   String getAirPollutionName(){

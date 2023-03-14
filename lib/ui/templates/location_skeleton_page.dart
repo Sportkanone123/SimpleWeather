@@ -14,7 +14,7 @@ class LocationSkeletonPage extends StatelessWidget {
           height: 113,
           width: 123,
           borderRadius: const BorderRadius.all(Radius.circular(11)),
-          margin: const EdgeInsets.only(bottom: 32, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 32, left: kDefaultPadding, right: kDefaultPadding),
           cardLoadingTheme: CardLoadingTheme(
             colorOne: kPrimaryColor,
             colorTwo: kPrimaryColor.withOpacity(0.5),
@@ -24,7 +24,7 @@ class LocationSkeletonPage extends StatelessWidget {
           height: 30,
           width: 172,
           borderRadius: const BorderRadius.all(Radius.circular(11)),
-          margin: const EdgeInsets.only(bottom: 16, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 16, left: kDefaultPadding, right: kDefaultPadding),
           cardLoadingTheme: CardLoadingTheme(
             colorOne: kPrimaryColor,
             colorTwo: kPrimaryColor.withOpacity(0.5),
@@ -34,7 +34,7 @@ class LocationSkeletonPage extends StatelessWidget {
           height: 70,
           width: 105,
           borderRadius: const BorderRadius.all(Radius.circular(11)),
-          margin: const EdgeInsets.only(bottom: 35, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 35, left: kDefaultPadding, right: kDefaultPadding),
           cardLoadingTheme: CardLoadingTheme(
             colorOne: kPrimaryColor,
             colorTwo: kPrimaryColor.withOpacity(0.5),
@@ -43,7 +43,7 @@ class LocationSkeletonPage extends StatelessWidget {
         CardLoading(
           height: 59,
           borderRadius: const BorderRadius.all(Radius.circular(11)),
-          margin: const EdgeInsets.only(bottom: 11, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 11, left: kDefaultPadding, right: kDefaultPadding),
           cardLoadingTheme: CardLoadingTheme(
             colorOne: kPrimaryColor,
             colorTwo: kPrimaryColor.withOpacity(0.5),
@@ -52,7 +52,7 @@ class LocationSkeletonPage extends StatelessWidget {
         CardLoading(
           height: 229,
           borderRadius: const BorderRadius.all(Radius.circular(11)),
-          margin: const EdgeInsets.only(left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
           cardLoadingTheme: CardLoadingTheme(
             colorOne: kPrimaryColor,
             colorTwo: kPrimaryColor.withOpacity(0.5),

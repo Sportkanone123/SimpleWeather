@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_weather/ui/screens/search_screen/search_screen.dart';
 
 import '../../constants.dart';
 
@@ -26,7 +27,12 @@ class SearchBar extends StatelessWidget{
             ],
           ),
           onTap: (){
-
+            Navigator.pushReplacement<void, void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const SearchScreen(),
+              ),
+            );
           },
         ),
     );

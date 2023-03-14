@@ -19,7 +19,7 @@ class InformationPage extends StatefulWidget{
 }
 
 class InformationPageState extends State<InformationPage> {
-  final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  final controller = PageController(viewportFraction: 1, keepPage: true);
 
   bool hasLoaded = false;
 

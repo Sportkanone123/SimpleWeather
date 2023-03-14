@@ -23,22 +23,22 @@ class LocationPage extends StatelessWidget {
         Container(
           height: 113,
           width: double.infinity,
-          margin: const EdgeInsets.only(bottom: 32, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 32, left: kDefaultPadding, right: kDefaultPadding),
           child: IconProvider().getWeatherIcon(weatherProfile.weatherId),
         ),
         Container(
           height: 30,
-          margin: const EdgeInsets.only(bottom: 16, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 16, left: kDefaultPadding, right: kDefaultPadding),
           child: AutoSizeText("${weatherProfile.location.name}, ${weatherProfile.location.country}", maxLines: 1, maxFontSize: 30, textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins")),
         ),
         Container(
           height: 70,
-          margin: const EdgeInsets.only(bottom: 35, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 35, left: kDefaultPadding, right: kDefaultPadding),
           child: Text("${weatherProfile.temperature.round()}°", textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 70, fontWeight: FontWeight.w500, fontFamily: "Poppins"),)
         ),
         Container(
           height: 59,
-          margin: const EdgeInsets.only(bottom: 11, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(bottom: 11, left: kDefaultPadding, right: kDefaultPadding),
           padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(11)),
@@ -80,7 +80,7 @@ class LocationPage extends StatelessWidget {
         ),
         Container(
           height: 229,
-          margin: const EdgeInsets.only(left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          margin: const EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(11)),
             color: kPrimaryColor,
