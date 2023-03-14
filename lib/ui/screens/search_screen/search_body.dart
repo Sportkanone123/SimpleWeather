@@ -22,11 +22,7 @@ class _StateSearchBody extends State<SearchBody> {
   TextEditingController searchController = TextEditingController();
 
   List<Widget> searchResults = [];
-  List<Widget> recommendations = List.generate(1, (index) => Container());
-
-  final resultsController = PageController(viewportFraction: 1, keepPage: true);
-
-  final recomController = PageController(viewportFraction: 1, keepPage: true);
+  List<Widget> quickRoutes = List.generate(1, (index) => Container());
 
   bool isLoading = false;
   late SharedPreferences prefs;
@@ -36,15 +32,15 @@ class _StateSearchBody extends State<SearchBody> {
   void initState() {
     super.initState();
 
-    refreshRecommendations();
+    refreshQuickRoutes();
   }
 
-  Future<void> refreshRecommendations() async {
+  Future<void> refreshQuickRoutes() async {
     prefs = await SharedPreferences.getInstance();
 
     Set<String> keys = prefs.getKeys();
 
-    recommendations = List.generate(keys.length, (index) =>
+    quickRoutes = List.generate(keys.length, (index) =>
         CardLoading(
           height: 31,
           width: 78,
@@ -83,13 +79,15 @@ class _StateSearchBody extends State<SearchBody> {
           height: 31,
           width: 78,
           margin: const EdgeInsets.only(right: 10),
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding: const EdgeInsets.only(left: 5, right: 5),
           decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(7)),
               color: kPrimaryColor
           ),
+          alignment: Alignment.center,
           child: AutoSizeText(key, maxLines: 1,
               maxFontSize: 10,
+              minFontSize: 5,
               textAlign: TextAlign.center,
               style: const TextStyle(color: kTextSecondaryColor,
                   fontSize: 10,
@@ -99,10 +97,12 @@ class _StateSearchBody extends State<SearchBody> {
       ));
     }
 
-    setState(() {
-      recommendations.clear();
-      recommendations.addAll(recomWidgets);
-    });
+    if(context.mounted){
+      setState(() {
+        quickRoutes.clear();
+        quickRoutes.addAll(recomWidgets);
+      });
+    }
   }
 
   @override
@@ -141,17 +141,14 @@ class _StateSearchBody extends State<SearchBody> {
 
           SizedBox(
             height: 31,
-            child: PageView.builder(
-              controller: recomController,
-              scrollDirection: Axis.horizontal,
-              itemCount: recommendations.length,
-              padEnds: true,
-              pageSnapping: true,
-              itemBuilder: (context, index) {
-                return recommendations[index];
-              },
-            ),
-          )
+            child: SingleChildScrollView(
+              child: Row(
+                children: quickRoutes,
+              ),
+            )
+          ),
+
+          const SizedBox(height: 23,),
         ],
       ),
     );
@@ -179,6 +176,7 @@ class SearchInput extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(15)),
           color: kPrimaryColor,
         ),
+        padding: const EdgeInsets.only(left: 15),
         child: TextField(
           style: const TextStyle(
               color: kTextPrimaryColor,
@@ -192,7 +190,7 @@ class SearchInput extends StatelessWidget {
           obscureText: false,
           decoration: const InputDecoration(
             border: InputBorder.none,
-            hintText: "   Search Location",
+            hintText: "Search Location",
             hintStyle: TextStyle(
                 color: kTextThirdColor,
                 fontSize: 15,

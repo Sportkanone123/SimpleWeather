@@ -51,11 +51,11 @@ class WeatherProfile {
     sunset = jsonResponse['sys']['sunset'] as int;
     weatherDescription = jsonResponse['weather'][0]['description'] as String;
     weatherId = jsonResponse['weather'][0]['id'] as int;
-    temperature = double.parse(jsonResponse['main']['temp']);
-    feelsLikeTemp = double.parse(jsonResponse['main']['feels_like']);
-    minTemp = double.parse(jsonResponse['main']['temp_min']);
-    maxTemp = double.parse(jsonResponse['main']['temp_max']);
-    windSpeed = double.parse(jsonResponse['wind']['speed']);
+    temperature = (jsonResponse['main']['temp'] as num).toDouble();
+    feelsLikeTemp = (jsonResponse['main']['feels_like'] as num).toDouble();
+    minTemp = (jsonResponse['main']['temp_min'] as num).toDouble();
+    maxTemp = (jsonResponse['main']['temp_max'] as num).toDouble();
+    windSpeed = (jsonResponse['wind']['speed'] as num).toDouble();
     windDegree = jsonResponse['wind']['deg'] as int;
     humidityPercent = jsonResponse['main']['humidity'] as int;
     atmosphericPressure = jsonResponse['main']['pressure'] as int;

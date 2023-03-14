@@ -58,12 +58,15 @@ class InformationPageState extends State<InformationPage> {
       locationWidgets.add(LocationPage(weatherProfile: weatherProfile));
     }
 
-    setState(() {
-      _pages.clear();
-      _pages.addAll(locationWidgets);
+    if(context.mounted){
+      setState(() {
+        _pages.clear();
+        _pages.addAll(locationWidgets);
 
-      hasLoaded = true;
-    });
+        hasLoaded = true;
+      });
+    }
+
   }
 
   @override
