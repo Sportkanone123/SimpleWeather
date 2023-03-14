@@ -43,4 +43,21 @@ class AirPollutionProfile {
     coarseParticlesMatter = subJsonResponse['components']['pm10'] as double;
     ammonia = subJsonResponse['components']['nh3'] as double;
   }
+
+  String getAirPollutionName(){
+    switch (airPollutionIndex){
+      case 1:
+        return "GOOD";
+      case 2:
+        return "FAIR";
+      case 3:
+        return "MODEST";
+      case 4:
+        return "POOR";
+      case 5:
+        return "BAD";
+      default:
+        return "UNKNOWN";
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:simple_weather/ui/constants.dart';
 import 'package:simple_weather/utils/icon_provider.dart';
 import 'package:simple_weather/utils/weather_profile.dart';
@@ -37,11 +38,44 @@ class LocationPage extends StatelessWidget {
         Container(
           height: 59,
           margin: const EdgeInsets.only(bottom: 11, left: kDefaultPadding / 2, right: kDefaultPadding / 2),
+          padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(11)),
             color: kPrimaryColor,
           ),
-          child: Container(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  const Text("TIME", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, fontFamily: "Poppins", color: kTextThirdColor),),
+                  const SizedBox(height: 6,),
+                  Text(DateFormat.Hm().format(DateTime.now()).toString(), style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: "Poppins", color: kTextPrimaryColor),),
+                ],
+              ),
+              Column(
+                children: [
+                  const Text("% RAIN", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, fontFamily: "Poppins", color: kTextThirdColor),),
+                  const SizedBox(height: 6,),
+                  Text("${weatherProfile.humidityPercent}%", style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: "Poppins", color: kTextPrimaryColor),),
+                ],
+              ),
+              Column(
+                children: [
+                  const Text("WIND", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, fontFamily: "Poppins", color: kTextThirdColor),),
+                  const SizedBox(height: 6,),
+                  Text("${weatherProfile.windSpeed.round()} km/h", style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: "Poppins", color: kTextPrimaryColor),),
+                ],
+              ),
+              Column(
+                children: [
+                  const Text("AIR", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, fontFamily: "Poppins", color: kTextThirdColor),),
+                  const SizedBox(height: 6,),
+                  Text(weatherProfile.airPollutionIndex.getAirPollutionName(), style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: "Poppins", color: kTextPrimaryColor),),
+                ],
+              )
+            ],
+          ),
         ),
         Container(
           height: 229,
