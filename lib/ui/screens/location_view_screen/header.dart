@@ -23,14 +23,15 @@ class _HeaderState extends State<Header> {
 
 
   @override
-  Future<void> initState() async {
+  void initState() {
     super.initState();
 
-    prefs = await SharedPreferences.getInstance();
-
-    setState(() {
-      isSaved = prefs.containsKey(widget.weatherProfile.location.name);
-      hasLoaded = true;
+    SharedPreferences.getInstance().then((value) => {
+      prefs = value,
+      setState(() {
+        isSaved = prefs.containsKey(widget.weatherProfile.location.name);
+        hasLoaded = true;
+      })
     });
   }
 
@@ -45,19 +46,21 @@ class _HeaderState extends State<Header> {
             onPressed: (){
               Navigator.of(context).pop();
             },
-            icon: const Icon(Icons.keyboard_arrow_left, color: kTextSecondaryColor, size: 12),
+            icon: const Icon(Icons.keyboard_arrow_left, color: kTextSecondaryColor, size: 32),
           ),
           (hasLoaded)
-              ? (isSaved)
+              ? (!isSaved)
                   ? InkWell(
                       child: Container(
                         height: 39,
                         width: 110,
                         color: kPrimaryColor,
+                        alignment: Alignment.center,
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
-                            Text("Add to List", style: TextStyle(color: kTextThirdColor, fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.w500),),
-                            Icon(Icons.add_circle_outline, color: kTextThirdColor, size: 14,)
+                            Text("Add to List ", style: TextStyle(color: kTextSecondaryColor, fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.w500),),
+                            Icon(Icons.add_circle_outline, color: kTextSecondaryColor, size: 14,)
                           ],
                         ),
                       ),
@@ -73,9 +76,11 @@ class _HeaderState extends State<Header> {
                         height: 39,
                         width: 110,
                         color: const Color(0xFF009456),
+                        alignment: Alignment.center,
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
-                            Text("Added to List", style: TextStyle(color: Colors.white, fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.w500),),
+                            Text("Added to List ", style: TextStyle(color: Colors.white, fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.w500),),
                             Icon(Icons.done, color: Colors.white, size: 14,)
                           ],
                         ),

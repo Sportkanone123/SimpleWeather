@@ -14,14 +14,16 @@ class LocationViewScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      appBar: AppBar(
-          flexibleSpace: Header(weatherProfile: profile,),
-          toolbarHeight: 145,
-          backgroundColor: kBackgroundColor,
-          automaticallyImplyLeading: false,
-      ),
-      body: SingleChildScrollView(
-        child: LocationPage(weatherProfile: profile),
+      body: Column(
+        children: [
+          Header(weatherProfile: profile,),
+          SingleChildScrollView(
+            child: Container(
+              margin: const EdgeInsets.only(left: kDefaultPadding * 0.5, right: kDefaultPadding * 0.5),
+              child: LocationPage(weatherProfile: profile),
+            )
+          )
+        ],
       )
     );
   }
