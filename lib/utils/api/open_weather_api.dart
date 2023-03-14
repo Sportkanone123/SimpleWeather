@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
+import 'package:simple_weather/utils/simple_weather_profile.dart';
 
 import '../api_credentials.dart';
 import '../air_pollution_profile.dart';
@@ -26,6 +27,15 @@ class OpenWeatherAPI{
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     return WeatherProfile.fromJson(jsonResponse, airPollutionProfile, locationProfile);
+  }
+
+  Future<SimpleWeatherProfile> getSimpleWeatherProfile(LocationProfile locationProfile) async {
+    final response = await http
+        .get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=${locationProfile.latLng.latitude}&lon=${locationProfile.latLng.longitude}&units=metric&appid=${APICredentials().OPEN_WEATHER_API_KEY}'));
+
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+
+    return SimpleWeatherProfile.fromJson(jsonResponse, locationProfile);
   }
 
   Future<List<LocationProfile>> getLocationProfile(String query, int limit) async{
