@@ -20,7 +20,7 @@ class InformationPageState extends State<InformationPage> {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
   final List<Widget> _pages = List.generate(3,
-          (index) => LocationPage(weatherProfile: WeatherProfile.fromJson(jsonDecode('{"coord":{"lon":9.748,"lat":48.0878},"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}],"base":"stations","main":{"temp":9.14,"feels_like":5.93,"temp_min":7.4,"temp_max":9.8,"pressure":1013,"humidity":70},"visibility":10000,"wind":{"speed":6.69,"deg":240},"clouds":{"all":40},"dt":1678641403,"sys":{"type":2,"id":2043407,"country":"DE","sunrise":1678599683,"sunset":1678641633},"timezone":3600,"id":2870795,"name":"Mittelbiberach","cod":200}')
+          (index) => LocationPage(weatherProfile: WeatherProfile.fromJson(jsonDecode('{"coord":{"lon":9.748,"lat":48.0878},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":6.69,"feels_like":1.45,"temp_min":5.62,"temp_max":8.05,"pressure":1006,"humidity":59},"visibility":10000,"wind":{"speed":11.62,"deg":259},"clouds":{"all":75},"dt":1678809694,"sys":{"type":2,"id":2035370,"country":"DE","sunrise":1678772238,"sunset":1678814610},"timezone":3600,"id":2870795,"name":"Mittelbiberach","cod":200}')
               , AirPollutionProfile.fromJSON(jsonDecode('{"coord":{"lon":9.748,"lat":48.0878},"list":[{"main":{"aqi":1},"components":{"co":210.29,"no":0.05,"no2":3.64,"o3":54.36,"so2":0.3,"pm2_5":0.5,"pm10":0.69,"nh3":5.19},"dt":1678640657}]}'))
               , LocationProfile.fromJSON(jsonDecode('{"name":"Mittelbiberach","lat":48.0877864,"lon":9.7479621,"country":"DE","state":"Baden-Württemberg"}')))));
 

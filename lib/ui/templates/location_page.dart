@@ -12,6 +12,10 @@ class LocationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    DateTime sunrise = DateTime.fromMillisecondsSinceEpoch(weatherProfile.sunrise * 1000, isUtc: true).toLocal();
+    DateTime sunset = DateTime.fromMillisecondsSinceEpoch(weatherProfile.sunset * 1000, isUtc: true).toLocal();
+
     return Column(
       children: [
         Container(
@@ -62,14 +66,14 @@ class LocationPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         const Text("Sunrise", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextThirdColor),),
-                        Text("${DateTime.fromMicrosecondsSinceEpoch(weatherProfile.sunrise, isUtc: true).hour}:${DateTime.fromMicrosecondsSinceEpoch(weatherProfile.sunrise, isUtc: true).minute}", textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 12, fontFamily: "Poppins", color: kTextPrimaryColor),)
+                        Text("${sunrise.hour}:${sunrise.minute}", textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 12, fontFamily: "Poppins", color: kTextPrimaryColor),)
                       ],
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         const Text("Sunset", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextThirdColor),),
-                        Text("${DateTime.fromMicrosecondsSinceEpoch(weatherProfile.sunset, isUtc: true).hour}:${DateTime.fromMicrosecondsSinceEpoch(weatherProfile.sunset, isUtc: true).minute}", textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 12, fontFamily: "Poppins", color: kTextPrimaryColor),)
+                        Text("${sunset.hour}:${sunset.minute}", textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 12, fontFamily: "Poppins", color: kTextPrimaryColor),)
                       ],
                     ),
                   ],
@@ -83,18 +87,20 @@ class LocationPage extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(left: 17, top: 16),
                 child: Row(
-                  children: const [
-                    Text("Length of day: ", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextPrimaryColor),),
-                    Text("13H 12M", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),),
+                  children: [
+                    const Text("Length of day: ", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextPrimaryColor),),
+                    Text("${sunrise.difference(sunset).abs().inHours}H ${sunrise.difference(sunset).abs().inMinutes % 60}M", textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),),
                   ],
                 )
               ),
               Container(
                 margin: const EdgeInsets.only(left: 17, top: 4),
                 child: Row(
-                  children: const [
-                    Text("Remaining daylight: ", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextPrimaryColor),),
-                    Text("9H 22M", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),),
+                  children: [
+                    const Text("Remaining daylight: ", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextPrimaryColor),),
+                    (!DateTime.now().isAfter(sunset)) ?
+                      Text("${sunset.difference(DateTime.now()).abs().inHours}H ${sunset.difference(DateTime.now()).abs().inMinutes % 60}M", textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),)
+                      : const Text("0H 0M", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),)
                   ],
                 )
               ),
@@ -104,5 +110,4 @@ class LocationPage extends StatelessWidget {
       ],
     );
   }
-
 }
