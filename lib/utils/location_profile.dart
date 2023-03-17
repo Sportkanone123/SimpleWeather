@@ -10,7 +10,7 @@ class LocationProfile {
   LocationProfile(this.name, this.latLng, this.country);
 
   LocationProfile.fromJSON(Map<String, dynamic> jsonResponse){
-    name = jsonResponse['name'];
+    name = jsonResponse['name'].toString().toLowerCase();
     latLng = LatLng(jsonResponse['lat'], jsonResponse['lon']);
     country = jsonResponse['country'];
   }
@@ -18,7 +18,7 @@ class LocationProfile {
   String toJSON(){
     Map<String, dynamic> jsonObject = {};
 
-    jsonObject['name'] = name;
+    jsonObject['name'] = name.toLowerCase();
     jsonObject['lon'] = latLng.longitude;
     jsonObject['lat'] = latLng.latitude;
     jsonObject['country'] = country;

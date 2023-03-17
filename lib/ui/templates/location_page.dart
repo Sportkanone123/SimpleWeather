@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:simple_weather/ui/constants.dart';
 import 'package:simple_weather/utils/icon_provider.dart';
 import 'package:simple_weather/utils/weather_profile.dart';
+import 'package:simple_weather/utils/string_extension.dart';
 
 class LocationPage extends StatelessWidget {
   final WeatherProfile weatherProfile;
@@ -29,7 +30,7 @@ class LocationPage extends StatelessWidget {
         Container(
           height: 30,
           margin: const EdgeInsets.only(bottom: 16, left: kDefaultPadding, right: kDefaultPadding),
-          child: AutoSizeText("${weatherProfile.location.name}, ${weatherProfile.location.country}", maxLines: 1, maxFontSize: 30, textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins")),
+          child: AutoSizeText("${weatherProfile.location.name.capitalize()}, ${weatherProfile.location.country}", maxLines: 1, maxFontSize: 30, textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins")),
         ),
         Container(
           height: 70,

@@ -17,11 +17,13 @@ class LocationViewScreen extends StatelessWidget{
       body: Column(
         children: [
           Header(weatherProfile: profile,),
-          SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.only(left: kDefaultPadding * 0.5, right: kDefaultPadding * 0.5),
-              child: LocationPage(weatherProfile: profile),
-            )
+          Expanded(
+              child: SingleChildScrollView(
+                  child: Container(
+                    margin: const EdgeInsets.only(left: kDefaultPadding * 0.5, right: kDefaultPadding * 0.5),
+                    child: LocationPage(weatherProfile: profile),
+                  )
+              )
           )
         ],
       )

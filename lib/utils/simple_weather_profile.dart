@@ -18,6 +18,6 @@ class SimpleWeatherProfile {
     location = locationProfile;
     weatherDescription = jsonResponse['weather'][0]['description'] as String;
     weatherId = jsonResponse['weather'][0]['id'] as int;
-    temperature = double.parse(jsonResponse['main']['temp']);
+    temperature = (jsonResponse['main']['temp'] as num).toDouble();
   }
 }

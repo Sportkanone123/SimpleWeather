@@ -41,9 +41,6 @@ class InformationPageState extends State<InformationPage> {
 
     prefs = await SharedPreferences.getInstance();
 
-    prefs.setString('Mittelbiberach', '{"name":"Mittelbiberach","lon":9.748,"lat":48.0878,"country":"DE"}');
-    prefs.setString('Aeschi bei Spiez', '{"name":"Aeschi bei Spiez","lon":7.6965086,"lat":46.6583588,"country":"CH"}');
-
     Set<String> keys = prefs.getKeys();
 
     _pages = List.generate(keys.length, (index) => const LocationSkeletonPage());
@@ -72,50 +69,48 @@ class InformationPageState extends State<InformationPage> {
   @override
   Widget build(BuildContext context) {
     if (_pages.isNotEmpty) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            height: 22,
-            width: _pages.length * 20 + 18,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-            ),
-            alignment: Alignment.center,
-            child: SmoothPageIndicator(
-              controller: controller,
-              count: _pages.length,
-              effect: const WormEffect(
-                dotHeight: 8,
-                dotWidth: 8,
-                spacing: 12,
-                type: WormType.normal,
-                // strokeWidth: 5,
+      return Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              height: 22,
+              width: _pages.length * 20 + 18,
+              decoration: const BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: kPrimaryColor,
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+              ),
+              alignment: Alignment.center,
+              child: SmoothPageIndicator(
+                controller: controller,
+                count: _pages.length,
+                effect: const WormEffect(
+                  dotHeight: 8,
+                  dotWidth: 8,
+                  spacing: 12,
+                  type: WormType.normal,
+                  // strokeWidth: 5,
+                ),
               ),
             ),
-          ),
 
-          const SizedBox(height: 41),
+            const SizedBox(height: 41),
 
-          SizedBox(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height - 170,
-            child: PageView.builder(
-              controller: controller,
-              scrollDirection: Axis.horizontal,
-              itemCount: _pages.length,
-              padEnds: true,
-              pageSnapping: true,
-              itemBuilder: (context, index) {
-                return SingleChildScrollView(child: _pages[index]);
-              },
+            Expanded(
+              child: PageView.builder(
+                controller: controller,
+                scrollDirection: Axis.horizontal,
+                itemCount: _pages.length,
+                padEnds: true,
+                pageSnapping: true,
+                itemBuilder: (context, index) {
+                  return SingleChildScrollView(child: _pages[index]);
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     } else {
       return Container(

@@ -29,7 +29,7 @@ class _HeaderState extends State<Header> {
     SharedPreferences.getInstance().then((value) => {
       prefs = value,
       setState(() {
-        isSaved = prefs.containsKey(widget.weatherProfile.location.name);
+        isSaved = prefs.containsKey(widget.weatherProfile.location.name.toLowerCase());
         hasLoaded = true;
       })
     });

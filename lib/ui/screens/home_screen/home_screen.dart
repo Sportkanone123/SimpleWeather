@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -9,6 +11,9 @@ class HomeScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    currentFocus.unfocus();
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Column(
