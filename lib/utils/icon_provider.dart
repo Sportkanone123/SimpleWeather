@@ -100,12 +100,12 @@ class IconProvider {
       case 230:
       case 231:
       case 232:
-        return SvgPicture.asset('assets/weather_icons/thunderstorm_rain.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/thunderstorm_rain.svg', width: 89);
       case 210:
       case 211:
       case 212:
       case 221:
-        return SvgPicture.asset('assets/weather_icons/thunderstorm.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/thunderstorm.svg', width: 89);
       case 300:
       case 301:
       case 302:
@@ -115,38 +115,38 @@ class IconProvider {
       case 313:
       case 314:
       case 321:
-        return SvgPicture.asset('assets/weather_icons/drizzle.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/drizzle.svg', width: 89);
       case 500:
       case 501:
       case 502:
       case 503:
       case 504:
         if(_isDay()) {
-          return SvgPicture.asset('assets/weather_icons/rain_day.svg', fit: BoxFit.fitWidth,);
+          return SvgPicture.asset('assets/weather_icons/rain_day.svg', width: 89);
         }else{
-          return SvgPicture.asset('assets/weather_icons/rain_night.svg', fit: BoxFit.fitWidth,);
+          return SvgPicture.asset('assets/weather_icons/rain_night.svg', width: 89);
         }
       case 511:
-        return SvgPicture.asset('assets/weather_icons/freezing_rain.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/freezing_rain.svg', width: 89);
       case 520:
       case 521:
       case 522:
       case 531:
-        return SvgPicture.asset('assets/weather_icons/heavy_rain.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/heavy_rain.svg', width: 89);
       case 600:
       case 601:
       case 602:
-        return SvgPicture.asset('assets/weather_icons/snow.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/snow.svg', width: 89);
       case 611:
       case 612:
       case 613:
       case 615:
       case 616:
-        return SvgPicture.asset('assets/weather_icons/freezing_rain.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/freezing_rain.svg', width: 89);
       case 620:
       case 621:
       case 622:
-        return SvgPicture.asset('assets/weather_icons/shower_snow.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/shower_snow.svg', width: 89);
       case 701:
       case 711:
       case 721:
@@ -155,28 +155,28 @@ class IconProvider {
       case 751:
       case 761:
       case 762:
-        return SvgPicture.asset('assets/weather_icons/foggy.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/foggy.svg', width: 89, fit: BoxFit.fill,);
       case 771:
       case 781:
-        return SvgPicture.asset('assets/weather_icons/storm.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/storm.svg', width: 89, fit: BoxFit.fill,);
       case 800:
         if(_isDay()) {
-          return SvgPicture.asset('assets/weather_icons/clear_day.svg', fit: BoxFit.fitWidth,);
+          return SvgPicture.asset('assets/weather_icons/clear_day.svg', width: 89, fit: BoxFit.fill,);
         }else{
-          return SvgPicture.asset('assets/weather_icons/clear_night.svg', fit: BoxFit.fitWidth,);
+          return SvgPicture.asset('assets/weather_icons/clear_night.svg', width: 89, fit: BoxFit.fill,);
         }
       case 801:
         if(_isDay()) {
-          return SvgPicture.asset('assets/weather_icons/few_clouds_day.svg', fit: BoxFit.fitWidth,);
+          return SvgPicture.asset('assets/weather_icons/few_clouds_day.svg', width: 89, fit: BoxFit.fill,);
         }else{
-          return SvgPicture.asset('assets/weather_icons/few_clouds_night.svg', fit: BoxFit.fitWidth,);
+          return SvgPicture.asset('assets/weather_icons/few_clouds_night.svg', width: 89, fit: BoxFit.fill,);
         }
       case 802:
       case 803:
       case 804:
-        return SvgPicture.asset('assets/weather_icons/clouds.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/clouds.svg', width: 89, fit: BoxFit.fill,);
       default:
-        return SvgPicture.asset('assets/weather_icons/fetch_failed.svg', fit: BoxFit.fitWidth,);
+        return SvgPicture.asset('assets/weather_icons/fetch_failed.svg', width: 89, fit: BoxFit.fill,);
     }
   }
 
