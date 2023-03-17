@@ -33,7 +33,7 @@ class LocationPage extends StatelessWidget {
           child: AutoSizeText("${weatherProfile.location.name.capitalize()}, ${weatherProfile.location.country}", maxLines: 1, maxFontSize: 30, textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins")),
         ),
         Container(
-          height: 70,
+          height: 72,
           margin: const EdgeInsets.only(bottom: 35, left: kDefaultPadding, right: kDefaultPadding),
           child: Text("${weatherProfile.temperature.round()}°", textAlign: TextAlign.center, style: const TextStyle(color: kTextSecondaryColor, fontSize: 70, fontWeight: FontWeight.w500, fontFamily: "Poppins"),)
         ),
