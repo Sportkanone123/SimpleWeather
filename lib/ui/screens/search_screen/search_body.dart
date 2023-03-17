@@ -40,7 +40,6 @@ class _StateSearchBody extends State<SearchBody> {
   }
 
   Future<void> refreshRecommendations(String value) async {
-    print(value);
     if(value.isNotEmpty && value.replaceAll(" ", "").isNotEmpty){
       setState(() {
         searchResults.clear();
@@ -245,7 +244,7 @@ class _StateSearchBody extends State<SearchBody> {
 
 class SearchInput extends StatelessWidget {
   final TextEditingController textController;
-  final _debouncer = Debouncer(milliseconds: 1500);
+  final _debouncer = Debouncer(milliseconds: 1000);
   final Function onEditingComplete;
   final double width;
 

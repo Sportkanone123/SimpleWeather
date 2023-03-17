@@ -17,11 +17,11 @@ Future<void> main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent)
+      SystemUiOverlayStyle.light.copyWith(systemNavigationBarColor: Colors.transparent)
   );
 
   await SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.immersiveSticky
+      SystemUiMode.edgeToEdge
   );
 
   runApp(const App());
