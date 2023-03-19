@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
-import 'package:simple_weather/utils/simple_weather_profile.dart';
+import 'package:simple_weather/utils/profile/simple_weather_profile.dart';
 
 import '../api_credentials.dart';
-import '../air_pollution_profile.dart';
-import '../location_profile.dart';
-import '../weather_profile.dart';
+import '../profile/air_pollution_profile.dart';
+import '../profile/location_profile.dart';
+import '../profile/weather_profile.dart';
 
 class OpenWeatherAPI{
 

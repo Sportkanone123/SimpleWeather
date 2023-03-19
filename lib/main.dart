@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:simple_weather/ui/screens/home_screen/home_screen.dart';
 import 'package:simple_weather/ui/screens/location_view_screen/location_view_screen.dart';
 import 'package:simple_weather/ui/templates/location_page.dart';
-import 'package:simple_weather/utils/air_pollution_profile.dart';
-import 'package:simple_weather/utils/location_profile.dart';
-import 'package:simple_weather/utils/weather_profile.dart';
+import 'package:simple_weather/utils/profile/air_pollution_profile.dart';
+import 'package:simple_weather/utils/profile/location_profile.dart';
+import 'package:simple_weather/utils/profile/weather_profile.dart';
 
 import 'ui/constants.dart';
 

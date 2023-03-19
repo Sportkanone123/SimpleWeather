@@ -7,14 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_weather/ui/screens/home_screen/home_screen.dart';
 import 'package:simple_weather/ui/screens/location_view_screen/location_view_screen.dart';
 import 'package:simple_weather/ui/templates/simple_location_page.dart';
-import 'package:simple_weather/utils/simple_weather_profile.dart';
+import 'package:simple_weather/utils/profile/simple_weather_profile.dart';
 import 'package:simple_weather/utils/string_extension.dart';
 
-import '../../../utils/air_pollution_profile.dart';
+import '../../../utils/profile/air_pollution_profile.dart';
 import '../../../utils/api/open_weather_api.dart';
 import '../../../utils/debouncer.dart';
-import '../../../utils/location_profile.dart';
-import '../../../utils/weather_profile.dart';
+import '../../../utils/profile/location_profile.dart';
+import '../../../utils/profile/weather_profile.dart';
 import '../../constants.dart';
 
 class SearchBody extends StatefulWidget {

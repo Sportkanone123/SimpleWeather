@@ -4,7 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:simple_weather/ui/constants.dart';
-import 'package:simple_weather/utils/weather_profile.dart';
+import 'package:simple_weather/utils/profile/weather_profile.dart';
 
 class Header extends StatefulWidget {
   const Header({super.key, required this.weatherProfile});

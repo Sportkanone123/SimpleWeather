@@ -5,10 +5,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_weather/ui/constants.dart';
 import 'package:simple_weather/ui/templates/location_page.dart';
 import 'package:simple_weather/ui/templates/location_skeleton_page.dart';
-import 'package:simple_weather/utils/air_pollution_profile.dart';
+import 'package:simple_weather/utils/profile/air_pollution_profile.dart';
 import 'package:simple_weather/utils/api/open_weather_api.dart';
-import 'package:simple_weather/utils/location_profile.dart';
-import 'package:simple_weather/utils/weather_profile.dart';
+import 'package:simple_weather/utils/profile/location_profile.dart';
+import 'package:simple_weather/utils/profile/weather_profile.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class InformationPage extends StatefulWidget{

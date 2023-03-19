@@ -44,6 +44,7 @@ dependencies:
   card_loading: ^0.3.0
   flutter_svg: ^2.0.3
   auto_size_text: ^3.0.0
+  d_chart: ^2.2.11
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_weather/utils/simple_weather_profile.dart';
+import 'package:simple_weather/utils/profile/simple_weather_profile.dart';
 import 'package:simple_weather/utils/string_extension.dart';
 
 import '../../utils/icon_provider.dart';

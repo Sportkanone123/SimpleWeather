@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_weather/ui/screens/location_view_screen/header.dart';
 import 'package:simple_weather/ui/templates/location_page.dart';
-import 'package:simple_weather/utils/weather_profile.dart';
+import 'package:simple_weather/utils/profile/weather_profile.dart';
 
 import '../../constants.dart';
 

@@ -1,10 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:d_chart/d_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_weather/ui/constants.dart';
 import 'package:simple_weather/utils/icon_provider.dart';
-import 'package:simple_weather/utils/weather_profile.dart';
+import 'package:simple_weather/utils/profile/weather_profile.dart';
 import 'package:simple_weather/utils/string_extension.dart';
 
 class LocationPage extends StatelessWidget {
@@ -139,6 +140,23 @@ class LocationPage extends StatelessWidget {
                       : const Text("---", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, fontFamily: "Poppins", color: kTextSecondaryColor),)
                   ],
                 )
+              ),
+            ],
+          ),
+        ),
+        Container(
+          height: 229,
+          margin: const EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(11)),
+            color: kPrimaryColor,
+          ),
+          child: Column(
+            children: [
+              DChartSingleBar(
+                forgroundColor: Colors.green,
+                value: 30,
+                max: 80,
               ),
             ],
           ),
