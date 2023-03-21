@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:d_chart/d_chart.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_weather/ui/constants.dart';
@@ -74,7 +75,7 @@ class LocationPage extends StatelessWidget {
                 children: [
                   const Text("AIR", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, fontFamily: "Poppins", color: kTextThirdColor),),
                   const SizedBox(height: 6,),
-                  Text(weatherProfile.airPollutionIndex.getAirPollutionName(), style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: "Poppins", color: kTextPrimaryColor),),
+                  Text(weatherProfile.airPollutionIndex.getIndexName(weatherProfile.airPollutionIndex.airPollutionIndex), style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: "Poppins", color: kTextPrimaryColor),),
                 ],
               )
             ],
@@ -82,7 +83,7 @@ class LocationPage extends StatelessWidget {
         ),
         Container(
           height: 229,
-          margin: const EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
+          margin: const EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding, bottom: 11,),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(11)),
             color: kPrimaryColor,
@@ -145,18 +146,103 @@ class LocationPage extends StatelessWidget {
           ),
         ),
         Container(
-          height: 229,
+          height: 258,
           margin: const EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
+          padding: const EdgeInsets.only(left: 17, right: 17),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(11)),
             color: kPrimaryColor,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DChartSingleBar(
-                forgroundColor: Colors.green,
-                value: 30,
-                max: 80,
+              Container(
+                margin: const EdgeInsets.only(top: 15, bottom: 16),
+                child: const Text("AIR QUALITY INSIGHTS", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, fontFamily: "Poppins", color: kTextThirdColor),),
+              ),
+
+              const Text("Carbon Monoxide:", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextThirdColor),),
+              Container(
+                margin: const EdgeInsets.only(bottom: 5),
+                height: 15,
+                child: DChartSingleBar(
+                  forgroundColor: weatherProfile.airPollutionIndex.getIndexColor(weatherProfile.airPollutionIndex.carbonMonoxideIndex.toInt()),
+                  value: weatherProfile.airPollutionIndex.carbonMonoxideIndex,
+                  radius: BorderRadius.circular(10),
+                  max: 5,
+                  forgroundLabel: Text(weatherProfile.airPollutionIndex.getIndexName(weatherProfile.airPollutionIndex.carbonMonoxideIndex.toInt()), textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextPrimaryColor)),
+                  forgroundLabelAlign: Alignment.center,
+                ),
+              ),
+
+              const Text("Ozone:", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextThirdColor),),
+              Container(
+                margin: const EdgeInsets.only(bottom: 5),
+                height: 15,
+                child: DChartSingleBar(
+                  forgroundColor: weatherProfile.airPollutionIndex.getIndexColor(weatherProfile.airPollutionIndex.ozoneIndex.toInt()),
+                  radius: BorderRadius.circular(10),
+                  value: weatherProfile.airPollutionIndex.ozoneIndex,
+                  max: 5,
+                  forgroundLabel: Text(weatherProfile.airPollutionIndex.getIndexName(weatherProfile.airPollutionIndex.ozoneIndex.toInt()), textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextPrimaryColor)),
+                  forgroundLabelAlign: Alignment.center,
+                ),
+              ),
+
+              const Text("Fine Particles Matter:", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextThirdColor),),
+              Container(
+                margin: const EdgeInsets.only(bottom: 5),
+                height: 15,
+                child: DChartSingleBar(
+                  forgroundColor: weatherProfile.airPollutionIndex.getIndexColor(weatherProfile.airPollutionIndex.fineParticlesMatterIndex.toInt()),
+                  value: weatherProfile.airPollutionIndex.fineParticlesMatterIndex,
+                  radius: BorderRadius.circular(10),
+                  max: 5,
+                  forgroundLabel: Text(weatherProfile.airPollutionIndex.getIndexName(weatherProfile.airPollutionIndex.fineParticlesMatterIndex.toInt()), textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextPrimaryColor)),
+                  forgroundLabelAlign: Alignment.center,
+                ),
+              ),
+
+              const Text("Coarse Particles Matter:", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextThirdColor),),
+              Container(
+                margin: const EdgeInsets.only(bottom: 5),
+                height: 15,
+                child: DChartSingleBar(
+                  forgroundColor: weatherProfile.airPollutionIndex.getIndexColor(weatherProfile.airPollutionIndex.coarseParticlesMatterIndex.toInt()),
+                  value: weatherProfile.airPollutionIndex.coarseParticlesMatterIndex,
+                  radius: BorderRadius.circular(10),
+                  max: 5,
+                  forgroundLabel: Text(weatherProfile.airPollutionIndex.getIndexName(weatherProfile.airPollutionIndex.coarseParticlesMatterIndex.toInt()), textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextPrimaryColor)),
+                  forgroundLabelAlign: Alignment.center,
+                ),
+              ),
+
+              const Text("Nitrogen Dioxide:", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextThirdColor),),
+              Container(
+                margin: const EdgeInsets.only(bottom: 5),
+                height: 15,
+                child: DChartSingleBar(
+                  forgroundColor: weatherProfile.airPollutionIndex.getIndexColor(weatherProfile.airPollutionIndex.nitrogenDioxideIndex.toInt()),
+                  value: weatherProfile.airPollutionIndex.nitrogenDioxideIndex,
+                  radius: BorderRadius.circular(10),
+                  max: 5,
+                  forgroundLabel: Text(weatherProfile.airPollutionIndex.getIndexName(weatherProfile.airPollutionIndex.nitrogenDioxideIndex.toInt()), textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextPrimaryColor)),
+                  forgroundLabelAlign: Alignment.center,
+                ),
+              ),
+
+              const Text("Sulphur Dioxide:", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextThirdColor),),
+              Container(
+                margin: const EdgeInsets.only(bottom: 5),
+                height: 15,
+                child: DChartSingleBar(
+                  forgroundColor: weatherProfile.airPollutionIndex.getIndexColor(weatherProfile.airPollutionIndex.sulphurDioxideIndex.toInt()),
+                  value: weatherProfile.airPollutionIndex.sulphurDioxideIndex,
+                  radius: BorderRadius.circular(10),
+                  max: 5,
+                  forgroundLabel: Text(weatherProfile.airPollutionIndex.getIndexName(weatherProfile.airPollutionIndex.sulphurDioxideIndex.toInt()), textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 11, fontFamily: "Poppins", color: kTextPrimaryColor)),
+                  forgroundLabelAlign: Alignment.center,
+                ),
               ),
             ],
           ),

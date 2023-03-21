@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:latlong2/latlong.dart';
 
 class AirPollutionProfile {
@@ -68,8 +70,8 @@ class AirPollutionProfile {
     _convertValuesToIndex();
   }
 
-  String getAirPollutionName(){
-    switch (airPollutionIndex){
+  String getIndexName(int index){
+    switch (index){
       case 1:
         return "GOOD";
       case 2:
@@ -82,6 +84,23 @@ class AirPollutionProfile {
         return "BAD";
       default:
         return "UNKNOWN";
+    }
+  }
+
+  Color getIndexColor(int index){
+    switch (index){
+      case 1:
+        return const Color(0xFFB6F37B);
+      case 2:
+        return const Color(0xFF79B2F1);
+      case 3:
+        return const Color(0xFFF6EA7D);
+      case 4:
+        return const Color(0xFFF5C37C);
+      case 5:
+        return  const Color(0xFFF67C7C);
+      default:
+        return  const Color(0xFFC9CCC4);
     }
   }
 
